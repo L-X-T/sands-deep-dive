@@ -134,7 +134,7 @@ In this part of the lab, you will implement a tabbed pane. We use it to demonstr
     ng g c shared/controls/tab --export
     ```
 
-2. Please make sure that the _SharedModule_ is both declared and exported as the _SharedModule_.
+2. Please make sure that both components are both declared and exported as the _SharedModule_.
 
 3. Open the generated ``tab.component.ts`` file and add a ``title`` and a ``visible`` property:
 
@@ -592,10 +592,10 @@ Normally, using data bindings is the prefered way of communicating with child co
     ```typescript
     // src/app/shared/controls/tabbed-pane/tabbed-pane.component.ts
 
-    // ViewChild importieren:
+    // Import ViewChild:
     import { AfterContentInit, AfterViewInit, Component, ContentChildren, QueryList, ViewChild } from '@angular/core';
 
-    // Hinzufügen:
+    // Add:
     import { TabNavigatorComponent } from '../tab-navigator/tab-navigator.component';
 
     import { TabComponent } from '../tab/tab.component';

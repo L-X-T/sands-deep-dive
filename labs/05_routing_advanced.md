@@ -5,18 +5,18 @@
   - [Bonus: Aux-Routes *](#bonus-aux-routes-)
   - [CanActivateGuard](#canactivateguard)
   - [CanDeactivateGuard](#candeactivateguard)
-  - [Bonus: Login **](#bonus-login-)
+  <!-- - [Bonus: Login **](#bonus-login-) -->
   - [Bonus: Resolver *](#bonus-resolver-)
   - [Bonus: Loading Indicator *](#bonus-loading-indicator-)
   - [Lazy Loading](#lazy-loading)
-    - [Lazy Loading konfigurieren](#lazy-loading-konfigurieren)
+    - [Lazy Loading Configuration](#lazy-loading-Configuration)
     - [Preloading](#preloading)
     - [Fix Shared Services](#fix-shared-services)
     - [Bonus: Custom Preloading Strategy **](#bonus-custom-preloading-strategy-)
 
 ## Hierarchical Routing
 
-In dieser Übung werden Sie mit einer neuen Komponente ``FlightBookingComponent`` und hierarchischem Routing eine weitere Navigationsebene einführen:
+In this exercise, you will introduce another layer of navigation using a new component ``FlightBookingComponent`` and hierarchical routing:
 
 ```
 AppComponent
@@ -27,14 +27,14 @@ AppComponent
                       +--------------------- PassengerSearchComponent
 ```
 
-Sie können sich dazu an der folgenden Anleitung anlehnen:
+You can refer to the following guide for this:
 
-1. Betrachten Sie die ``FlightBookingComponent`` im Ordner ``src/app/flight-booking``.
+1. Look at the ``FlightBookingComponent`` in the ``src/app/flight-booking`` folder.
 
-2. Definieren Sie in der Datei ``flight-booking.routes.ts`` eine Route für die neue Komponente. Alle bisherigen Routen sollen zu ihren Child-Routen werden.
+2. Define a route for the new component in the ``flight-booking.routes.ts`` file. All previous routes should become their child routes.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary></summary>
   <p>
 
    ```TypeScript
@@ -63,11 +63,10 @@ Sie können sich dazu an der folgenden Anleitung anlehnen:
   </p>
   </details>
 
-
-3. Wechseln Sie in die Datei ``sidebar.component.html`` und definieren Sie dort einen Hauptmenüpunkt für die Route ``flight-booking/flight-search``. Die Route für ``passenger-search`` können Sie entfernen.
+3. Switch to the file ``sidebar.component.html`` and define a main menu item for the route ``flight-booking/flight-search`` there. You can remove the route for ``passenger-search``.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```HTML
@@ -108,11 +107,10 @@ Sie können sich dazu an der folgenden Anleitung anlehnen:
   </p>
   </details>
 
-
-4. Wechseln Sie in die Datei ``flight-card.component.html`` und aktualisieren Sie dort den Link auf ``flight-edit`` auf ``../flight-edit``.
+4. Go to the file ``flight-card.component.html`` and update the link on ``flight-edit`` to ``../flight-edit``.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```HTML
@@ -130,18 +128,18 @@ Sie können sich dazu an der folgenden Anleitung anlehnen:
   </p>
   </details>
 
-5Testen Sie Ihre Lösung.
+5. Test your solution.
 
 ## Bonus: Aux Routing *
 
-In dieser Übung werden Sie eine neue BasketComponent erzeugen und diese über eine Aux-Route einblenden. Mit den Möglichkeiten von CSS können Sie sie als Popover darstellen.
+In this exercise, you will create a new BasketComponent and fade it in via an aux route. With the power of CSS, you can render them as popovers.
 
-1. Betrachten Sie die ``BasketComponent`` im Ordner ``src/app``.
+1. Look at the ``BasketComponent`` in the ``src/app`` folder.
    
-2. Öffnen Sie die Datei ``app.component.html`` und fügen Sie ein weiteres ``router-outlet`` ein. Vergeben Sie den Namen ``aux``.
+2. Open the file ``app.component.html`` and add another ``router-outlet``. Assign the name ``aux``.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```HTML
@@ -159,11 +157,10 @@ In dieser Übung werden Sie eine neue BasketComponent erzeugen und diese über e
   </p>
   </details>
 
-
-3. Öffnen Sie die Datei ``app.routes.ts`` und ergänzen Sie eine Route ``basket``, die auf die neue ``BasketComponent`` verweist und dem neuen Outlet ``aux`` gewidtmet ist.
+3. Open the ``app.routes.ts`` file and add a route ``basket`` that points to the new ``BasketComponent`` and is dedicated to the new outlet ``aux``.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
 
   ```TypeScript
@@ -179,11 +176,10 @@ In dieser Übung werden Sie eine neue BasketComponent erzeugen und diese über e
   </p>
   </details>
 
-
-4. Öffnen Sie die Datei ``sidebar.component.html`` und ergänzen Sie einen Menüeintrag, der die ``BasketComponent`` anzeigt. 
+4. Open the file ``sidebar.component.html`` and add a menu item that displays the ``BasketComponent``.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```HTML
@@ -198,13 +194,13 @@ In dieser Übung werden Sie eine neue BasketComponent erzeugen und diese über e
   </p>
   </details>
 
-5. Testen Sie Ihre Lösung.
+5. Test your solution.
 
 ## CanActivateGuard
 
-In dieser Übung erstellen Sie einen AuthService, mit dem sich Benutzer anmelden können. Dieser AuthService merkt sich den aktuellen Benutzernamen bzw. ob der Benutzer angemeldet ist. Die Möglichkeiten des Services sollen dem Benutzer in der ``HomeComponent`` angeboten werden.
+In this exercise, you will create an _AuthService_ that users can use to log in. This _AuthService_ remembers the current user name or whether the user is logged in. The possibilities of the service should be offered to the user in the ``HomeComponent``.
 
-Zusätzlich erstellen Sie einen ``CanActivate``-Guard mit dem Namen ``AuthGuard``, der nur dann einen Routenwechsel zulässt, wenn der aktuelle Benutzer angemeldet ist. Hierzu stützt er sich auf den ``AuthService`` ab:
+Additionally, create a ``CanActivate`` guard called ``AuthGuard`` that will only allow a route switch if the current user is logged in. To do this, it relies on the ``AuthService``:
 
 ```
   [HomeComponent] -------> [AuthService]
@@ -213,11 +209,11 @@ Zusätzlich erstellen Sie einen ``CanActivate``-Guard mit dem Namen ``AuthGuard`
                             [AuthGuard]
 ```
 
-Sie können sich dabei am folgenden Ablauf orientieren:
+You can use the following process as a guide:
 
-1. Erstellen Sie einen Ordner ``auth`` im Ordner ``shared``.
+1. Create an ``auth`` folder inside the ``shared`` folder.
 
-2. Erstellen Sie im neuen Ordner ``auth`` einen ``AuthService``:
+2. In the new folder ``auth``, create an ``AuthService``:
 
   ```TypeScript
   @Injectable()
@@ -236,10 +232,10 @@ Sie können sich dabei am folgenden Ablauf orientieren:
   }
   ``` 
 
-3. Erstellen Sie im selben Ordner eine Datei ``auth.guard.ts`` mit einem ``CanActivate``-Guard, der sich auf den ``AuthService`` stützt.
+3. In the same folder, create a file ``auth.guard.ts`` with a ``CanActivate`` guard that relies on the ``AuthService``.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -261,10 +257,10 @@ Sie können sich dabei am folgenden Ablauf orientieren:
   </p>
   </details>
 
-4. Registrieren Sie den ``AuthGuard`` und den ``AuthService`` in der Datei ``shared.module.ts`.
+4. Register the ``AuthGuard`` and the ``AuthService`` in the ``shared.module.ts` file.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -282,10 +278,10 @@ Sie können sich dabei am folgenden Ablauf orientieren:
   </p>
   </details>
 
-5. Stellen Sie sicher, dass das ``AppModule`` (``app.module.ts``) das ``SharedModule`` importiert.
+5. Make sure the ``AppModule`` (``app.module.ts``) imports the ``SharedModule``.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -302,10 +298,10 @@ Sie können sich dabei am folgenden Ablauf orientieren:
   </p>
   </details>
 
-6. Öffnen Sie die Datei ``home.component.ts`` und lassen Sie sich dort den ``AuthService`` injizieren. Wrappen Sie seine Funktionalität mit Methoden bzw. Setter.
+6. Open the file ``home.component.ts`` and inject the ``AuthService`` there. Wrap its functionality with methods or getters.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -329,15 +325,15 @@ Sie können sich dabei am folgenden Ablauf orientieren:
   </p>
   </details>
 
-7. Öffnen Sie die Datei ``home.component.html``. Geben Sie dort den aktuellen Benutzernamen aus und bieten Sie Schaltflächen für das Login bzw. Logout an.
+7. Open the file ``home.component.html``. Enter the current user name there and offer buttons for login or logout.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```HTML
-  <h1 *ngIf="userName">Willkommen, {{userName}}</h1>
-  <h1 *ngIf="!userName">Willkommen!</h1>
+  <h1 *ngIf="userName">Welcome, {{userName}}</h1>
+  <h1 *ngIf="!userName">Welcome!</h1>
   
   <div class="card">
     <div class="content">
@@ -350,11 +346,10 @@ Sie können sich dabei am folgenden Ablauf orientieren:
   </p>
   </details>
 
-
-8. Registrieren Sie den ``AuthGuard`` bei der Routen-Konfiguration in ``flight-booking.routes.ts``, um die eine der eingerichteten Routen zu schützen.
+8. Register the ``AuthGuard`` in the route configuration in ``flight-booking.routes.ts`` to protect one of the configured routes.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
 
   ```TypeScript
@@ -372,16 +367,15 @@ Sie können sich dabei am folgenden Ablauf orientieren:
   </p>
   </details>
 
-
-9. Testen Sie Ihre Lösung.
+9. Test your solution.
 
 ## CanDeactivateGuard
 
-In dieser Übung entwickeln Sie einen ``CanDeactivate``-Guard um den Benutzer vor dem Verlassen einer Route zu warnen.
+In this exercise, you will develop a ``CanDeactivate`` guard to warn the user before deviating from a route.
 
-1. Erzeugen Sie im Ordner ``shared`` einen Ordner ``deactivation``.
+1. In the ``shared`` folder, create a ``deactivation`` folder.
 
-2. Erzeugen Sie im neuen Ordner ``deactivation`` eine Datei ``can-deactivate.guard``:
+2. In the new folder ``deactivation`` create a file ``can-deactivate.guard``:
 
   ```TypeScript
   export interface CanDeactivateComponent {
@@ -401,12 +395,12 @@ In dieser Übung entwickeln Sie einen ``CanDeactivate``-Guard um den Benutzer vo
   }
   ```
 
-  Das Interface ``CanDeactivateComponent`` kommt hier als Abstraktion für die Komponenten, die mit dem Guard zu nutzen sind, zum Einsatz.
+  The ``CanDeactivateComponent`` interface is used here as an abstraction for the components that are to be used with the guard.
 
-3. Öffnen Sie die Datei ``flight-edit.component.ts`` und implementieren Sie dort das Interface ``CanDeactivateComponent``, sodass beim verlassen zum einen ein Flag gesetzt wird und zum anderen ein ``Observable<boolean> `` zurückgeliefert wird. Das Flag dazu führen, dass eine Warnmeldung angezeigt wird. Sobald der Benutzer bekannt gegeben hat, ob wir die Route wirklich verlassen möchte, soll über das Observable ``true`` bzw. ``false`` an den Router gesendet werden. Danach muss es geschlossen werden. Zusätzlich soll danach das Flag wieder zurückgesetzt werden.
+3. Open the ``flight-edit.component.ts`` file and implement the ``CanDeactivateComponent`` interface there so that when exiting, a flag is set on the one hand and an ``Observable<boolean> `` on the other is returned. The flag will cause a warning message to be displayed. As soon as the user has announced whether we really want to leave the route, the observable should send ``true`` or ``false`` to the router. After that it must be closed. In addition, the flag should then be reset again.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -439,7 +433,7 @@ In dieser Übung entwickeln Sie einen ``CanDeactivate``-Guard um den Benutzer vo
   </p>
   </details>
 
-4. Erweitern Sie die Datei ``flight-edit.component.html`` um die zuvor erwähte Warnung mit den beiden Wahrmöglichkeiten für den Benutzer.
+4. In the ``flight-edit.component.html`` file, add the two-choice warning to the user mentioned previously.
 
   ```html
   <div *ngIf="showWarning" class="alert alert-warning" style="z-index: 99999;">
@@ -453,10 +447,10 @@ In dieser Übung entwickeln Sie einen ``CanDeactivate``-Guard um den Benutzer vo
   </div>
   ```
 
-5. Registrieren Sie den Guard in der Datei ``shared.module.ts``.
+5. Register the guard in the ``shared.module.ts`` file.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -474,10 +468,10 @@ In dieser Übung entwickeln Sie einen ``CanDeactivate``-Guard um den Benutzer vo
   </p>
   </details>
 
-6. Registrieren Sie den Guard auch in der Datei ``flight-booking.routes.ts``:
+6. Also register the guard in the ``flight-booking.routes.ts`` file:
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -493,8 +487,7 @@ In dieser Übung entwickeln Sie einen ``CanDeactivate``-Guard um den Benutzer vo
   </p>
   </details>
 
-
-7. Testen Sie Ihre Lösung.
+7. Test your solution.
 
 <!--
 ## Bonus: Login **
@@ -504,14 +497,14 @@ Erweitern Sie den ``AuthService``, sodass er unter Verwendung hartcodierter Date
 
 ## Bonus: Resolver *
 
-In dieser Übung werden Sie einen Resolver schreiben, der einen Flug anhand der Id in der Url für die ``FlightEditComponent`` lädt. Dazu werden Sie auch den FlightService um eine Methode ``findById`` erweitern.
+In this exercise, you will write a resolver that loads a flight using the id in the url for the ``FlightEditComponent``. You will also add a ``findById`` method to the FlightService.
 
-Sie können sich dabei am folgenden Ablauf orientieren:
+You can use the following process as a guide:
 
-1. Erweitern Sie den ``FlightService`` (``flight.service.ts``) um eine Methode ``findById``, die anhand einer übergebenen Id einen Flug als ``Observable<Flight>`` liefert.
+1. Extend the ``FlightService`` (``flight.service.ts``) with a method ``findById`` that returns a flight as ``Observable<Flight>`` based on a passed Id.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -527,10 +520,10 @@ Sie können sich dabei am folgenden Ablauf orientieren:
   </p>
   </details>
 
-2. Erstellen Sie im Ordner ``src/app/flight-booking/flight-search`` eine Datei ``flight.resolver.ts``, die die Id aus der Url entnimmt und mit dem ``FlightService`` den gewünschten Flug lädt.
+2. In the folder ``src/app/flight-booking/flight-search`` create a file ``flight.resolver.ts``, which takes the id from the url and the desired one with the ``FlightService`` flight loads.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -548,10 +541,10 @@ Sie können sich dabei am folgenden Ablauf orientieren:
   </p>
   </details>
 
-3. Registrieren Sie den ``FlightResolver`` in der Datei ``flight-booking.module.ts``.
+3. Register the ``FlightResolver`` in the ``flight-booking.module.ts`` file.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -569,10 +562,10 @@ Sie können sich dabei am folgenden Ablauf orientieren:
   </p>
   </details>
 
-4. Hinterlegen Sie den ``FlightResolver`` in der Datei ``flight-booking.routes.ts`` bei der Route ``flight-edit``.
+4. Store the ``FlightResolver`` in the file ``flight-booking.routes.ts`` for the route ``flight-edit``.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
 
   ```TypeScript
@@ -591,11 +584,10 @@ Sie können sich dabei am folgenden Ablauf orientieren:
   </p>
   </details>
 
-
-5. Ändern Sie die Datei ``flight-edit.component.ts``, sodass der vom Resolver geladene Flug entgegengenommen wird.
+5. Modify the ``flight-edit.component.ts`` file to accept the flight loaded by the resolver.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -625,21 +617,19 @@ Sie können sich dabei am folgenden Ablauf orientieren:
   </p>
   </details>
 
-
-6. Geben Sie im Template der ``FlightEditComponent`` (``flight-edit.component.ts``) die Eigenschaft ``flight`` aus:
+6. In the ``FlightEditComponent`` (``flight-edit.component.ts``) template, specify the ``flight`` property:
 
   ```HTML
   <pre>{{flight | json}}</pre>
   ```
 
-7. Testen Sie Ihre Lösung. 
-
+7. Test your solution. 
 
 ## Bonus: Loading Indicator *
 
-Diese Übung setzt voraus, dass Sie in der vorherigen Übung einen ``FlightResolver`` umgesetzt haben.
+This exercise assumes that you implemented a ``FlightResolver`` in the previous exercise.
 
-1. Lassen Sie sich in der Datei ``app.component.ts`` den ``Router`` injizieren und nutzen Sie seine Events um zu ermitteln, ob ein Loading Indicator anzuzeigen ist:
+1. Inject the ``Router`` into the ``app.component.ts`` file and use its events to determine whether to display a loading indicator:
 
   ```TypeScript
   export class AppComponent  {
@@ -665,7 +655,7 @@ Diese Übung setzt voraus, dass Sie in der vorherigen Übung einen ``FlightResol
   
   ```
 
-2. Fügen Sie am Ende der ``app.component.html`` einen Loading Indicator ein:
+2. Add a loading indicator at the end of ``app.component.html``:
 
   ```HTML
   <div *ngIf="showLoadingIndicator" class="loading-indicator" style="z-index: 50">
@@ -675,10 +665,10 @@ Diese Übung setzt voraus, dass Sie in der vorherigen Übung einen ``FlightResol
     </div>
   </div>
   ```
-  Das Projekt beinahaltet bereits Styles für diese Klassen, sodass der Loading Indicator animiert dargestellt wird.
 
+  The project already contains styles for these classes, so that the loading indicator is animated.
 
-3. Fügen Sie zum Testen des Loading Indicators in der Datei ``flight.resolver.ts`` einen Dalay ein:
+3. To test the loading indicator, add a dalay to the ``flight.resolver.ts`` file:
 
   ```TypeScript
   @Injectable()
@@ -692,20 +682,20 @@ Diese Übung setzt voraus, dass Sie in der vorherigen Übung einen ``FlightResol
   }
   ```
 
-4. Testen Sie Ihre Lösung und stellen Sie fest, dass beim Abrufen der ``FlightEditComponent`` der Loading Indicator erscheint.
+4. Test your solution and note that when you fetch the ``FlightEditComponent`` the Loading Indicator appears.
 
-5. Entfernen Sie das ``Delay`` wieder aus der Datei ``flight.resolver.ts``.
+5. Remove the ``Delay`` from the ``flight.resolver.ts`` file again.
 
 ## Lazy Loading
 
-### Lazy Loading konfigurieren
+### Lazy Loading Configuration
 
-In diesem Teil der Übung werden Sie das ``FlightBookingModule`` per Lazy Loading laden.
+In this part of the exercise, you will lazy load the ``FlightBookingModule``.
 
-1. Ergänzen Sie die Datei ``app.routes.ts`` um eine weitere Route, die das ``FlightBookingModule`` via Lazy Loading lädt.
+1. Add another route to the ``app.routes.ts`` file, which loads the ``FlightBookingModule`` via lazy loading.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -738,11 +728,10 @@ In diesem Teil der Übung werden Sie das ``FlightBookingModule`` per Lazy Loadin
   </p>
   </details>
 
-
-2. Öffnen Sie die Datei ``flight-booking.routes.ts`` und setzen Sie den Pfad für die ``FlightBookingComponent`` auf einen Leerstring. Entfernen Sie auch alle Verweise auf ``AuthGuards``. Diese machen vorerst Probleme. Die Lösung dazu wird weiter unten in einer eigenen Übung beschrieben.
+2. Open the file ``flight-booking.routes.ts`` and set the path for the ``FlightBookingComponent`` to an empty string. Also remove all references to ``AuthGuards``. These cause problems for the time being. The solution to this is described below in a separate exercise.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -761,11 +750,10 @@ In diesem Teil der Übung werden Sie das ``FlightBookingModule`` per Lazy Loadin
   </p>
   </details>
 
-
-3. Öffnen Sie die Datei ``app.module.ts`` und stellen Sie sicher, dass das ``FlightBookingModule`` hier nicht mehr importiert wird. 
+3. Open the ``app.module.ts`` file and make sure that the ``FlightBookingModule`` is no longer imported here.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -785,18 +773,18 @@ In diesem Teil der Übung werden Sie das ``FlightBookingModule`` per Lazy Loadin
   </p>
   </details>
 
-  Eine Referenz auf das ``FlightBookingModule`` würde dazu führen, dass es im Hauptbundle landet und das würde wiederum Lazy Loading verhindern.
+  A reference to the ``FlightBookingModule`` would cause it to end up in the main bundle and that would prevent lazy loading.
 
-4. Betrachten Sie die Ausgaben der Angular CLI und stellen Sie fest, dass diese nun ein Bundle ``flight-booking.module.chunk.js`` generiert hat.
+4. Look at the output of the Angular CLI and notice that it has now generated a bundle ``flight-booking.module.chunk.js``.
 
-5. Testen Sie Ihre Lösung im Browser. Wechseln Sie auf das Registerblatt ``Network`` in den Dev Tools (F12) und vergewissern Sie sich, dass das Modul erst bei Bedarf geladen wird.
+5. Test your solution in the browser. Go to the ``Network`` tab in Dev Tools (F12) and make sure that the module is only loaded when needed.
 
 ### Preloading
 
-1. Öffnen Sie die Datei ``app.module.ts`` und geben Sie beim Aufruf von ``RouterModule.forRoot`` die Preloading Strategie ``PreloadAllModules`` an.
+1. Open the file ``app.module.ts`` and specify the preloading strategy ``PreloadAllModules`` when calling ``RouterModule.forRoot``.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -818,15 +806,13 @@ In diesem Teil der Übung werden Sie das ``FlightBookingModule`` per Lazy Loadin
   </p>
   </details>
 
-
-2. Wechseln Sie im Browser in das Registerblatt ``Network`` der Developer Tools und vergewissern Sie sich, dass das ``FlightBookingModule`` per Lazy Loading unmittelbar nach den Anwendungsstart geladen wird.
-
+2. In the browser, go to the ``Network`` tab of the Developer Tools and make sure that the ``FlightBookingModule`` is lazy-loaded immediately after the application starts.
 
 ### Fix Shared Services
 
-In dieser Übung werden Sie Ihr ``SharedModule`` über eine statische Methode ``forRoot`` mit Services und mit einer statischen Methode ``forChild`` ohne Services anbieten. Dadurch, dass sie forRoot **nur** beim ``AppModule`` verwenden, stellen Sie sicher, dass es nur einen einzigen globalen AuthService gibt. Somit können Sie im per Lazy Loading geladenen Module auf den aktuellen Benutzernamen zugreifen und den oben beschriebenen ``AuthGuard`` wieder aktivieren.
+In this exercise, you will expose your ``SharedModule`` via a static method ``forRoot`` with services and a static method ``forChild`` without services. By using forRoot **only** on the ``AppModule``, you ensure that there is only a single global AuthService. This allows you to access the current username in the lazy-loaded module and re-enable the ``AuthGuard`` described above.
 
-1. Geben Sie in der ``PassengerSearchComponent`` den aktuellen Benutzernamen aus:
+1. In the ``PassengerSearchComponent``, enter the current username:
 
   ```TypeScript
   export class PassengerSearchComponent implements OnInit {
@@ -838,14 +824,14 @@ In dieser Übung werden Sie Ihr ``SharedModule`` über eine statische Methode ``
   }
   ```
 
-2. Starten Sie die Anwendung und melden Sie sich an. Stellen Sie fest, dass nach dem Anmelden der Benutzername ausgegeben wird.
+2. Start the application and log in. Notice that after logging in, the username is printed.
 
-3. Wechseln Sie zur Passagiersuche und stellen Sie fest, dass nun auf der JavaScript-Konsole anstatt des Benutzernames lediglich ``undefined`` ausgegeben wird. 
+3. Switch to the passenger search and notice that the JavaScript console now only returns ``undefined`` instead of the username.
 
-4. Öffnen Sie die Datei ``shared.module.ts``. Führen Sie eine statische Methode ``forRoot`` und eine statische Methode ``forChild`` ein und stellen Sie sicher, dass nur ``forRoot`` die Provider ausliefert.
+4. Open the ``shared.module.ts`` file. Introduce a static method ``forRoot`` and a static method ``forChild`` and make sure that only ``forRoot`` returns the providers.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -856,7 +842,7 @@ In dieser Übung werden Sie Ihr ``SharedModule`` über eine statische Methode ``
     declarations: [
       [...]
     ],
-    providers: [ /* Keine Provider hier, siehe forRoot */ ],
+    providers: [ /* No providers here, see forRoot */ ],
     exports: [
       [...]
     ]
@@ -866,7 +852,7 @@ In dieser Übung werden Sie Ihr ``SharedModule`` über eine statische Methode ``
     static forChild(): ModuleWithProviders<SharedModule> {
       return {
         ngModule: SharedModule,
-        providers: [ /* Keine Provider hier, siehe forRoot */ ]
+        providers: [ /* No providers here, see forRoot */ ]
       }
     }
   
@@ -875,23 +861,20 @@ In dieser Übung werden Sie Ihr ``SharedModule`` über eine statische Methode ``
         ngModule: SharedModule,
         providers: [
           AuthService,
-          [...] // Eventuelle andere Services hier
+          [...] // Any other services here
         ]
       }
     }
-  
   }
   ```
 
-  
   </p>
   </details>
 
-
-5. Stellen Sie sicher, dass in der ``app.module.ts`` das ``SharedModule`` mittels ``forRoot`` importiert wird.
+5. Make sure that in the ``app.module.ts`` the ``SharedModule`` is imported using ``forRoot``.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -908,11 +891,10 @@ In dieser Übung werden Sie Ihr ``SharedModule`` über eine statische Methode ``
   </p>
   </details>
 
-
-6. Stellen Sie auch sicher, dass in der Datei ``flight.booking.module.ts`` das ``SharedModule`` mittels ``forChild`` importiert wird.
+6. Also make sure that in the ``flight.booking.module.ts`` file the ``SharedModule`` is imported using ``forChild``.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -929,13 +911,12 @@ In dieser Übung werden Sie Ihr ``SharedModule`` über eine statische Methode ``
   </p>
   </details>
 
+7. Test the application and make sure that the ``PassengerSearchComponent`` is now writing the correct username to the JavaScript console.
 
-7. Testen Sie die Anwendung und vergewissern Sie sich, dass nun die ``PassengerSearchComponent`` den richtigen Benutzernamen auf die JavaScript-Konsole schreibt.
-
-8. Falls Sie weiter oben einen ``AuthGuard`` geschrieben haben, können Sie diesen nun (wieder) in der Datei ``flight-booking.routes.ts`` aktivieren.
+8. If you wrote an ``AuthGuard`` earlier, you can now (re)activate it in the ``flight-booking.routes.ts`` file.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -955,14 +936,14 @@ In dieser Übung werden Sie Ihr ``SharedModule`` über eine statische Methode ``
 
 ### Bonus: Custom Preloading Strategy **
 
-In diesem Teil der Übung werden Sie eine eigene ``PreloadingStrategy`` implementieren, die nur bestimmte, über das ``data``-Attribut markierte Routen vorlädt. Dazu werden Sie jene Routen, die es vorzuladen gilt, in der Routen-Konfiguration mit einem Boolean markieren.
+In this part of the exercise, you will implement your own ``PreloadingStrategy`` that only preloads certain routes marked with the ``data`` attribute. To do this, you will mark those routes that need to be preloaded with a boolean in the route configuration.
 
-1. Erstellen Sie im Ordner ``shared`` einen Ordner ``preloadig``.
+1. In the ``shared`` folder, create a ``preloadig`` folder.
 
-2. Erstellen Sie im neuen Ordner ``preloading`` eine Datei ``custom-preloading-strategy.ts``, die die oben erwähnte Aufgabe umsetzt.
+2. In the new ``preloading`` folder, create a ``custom-preloading-strategy.ts`` file that implements the above task.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -976,7 +957,6 @@ In diesem Teil der Übung werden Sie eine eigene ``PreloadingStrategy`` implemen
       }
   
       return of(null);
-  
     }
   }
   ```
@@ -984,11 +964,10 @@ In diesem Teil der Übung werden Sie eine eigene ``PreloadingStrategy`` implemen
   </p>
   </details>
 
-
-3. Registrieren Sie die ``CustomPreloadingStrategy`` im Rahmen eines Providers in der Datei ``shared.module.ts``.
+3. Register the ``CustomPreloadingStrategy`` as part of a provider in the ``shared.module.ts`` file.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -1008,10 +987,10 @@ In diesem Teil der Übung werden Sie eine eigene ``PreloadingStrategy`` implemen
   </p>
   </details>
 
-4. Hinterlegen Sie in der Datei ``app.routes.ts`` für die Route ``flight-booking`` in der Eigenschaft ``data``, dass die Route vorgeladen weden soll.
+4. In the ``app.routes.ts`` file for the ``flight-booking`` route, specify in the ``data`` property that the route should be preloaded.
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -1025,7 +1004,7 @@ In diesem Teil der Übung werden Sie eine eigene ``PreloadingStrategy`` implemen
   },
   [...]
   {
-    path: '**',      // Diese Route muss die letzte sein!
+    path: '**',      // This route must be the last!
     redirectTo: 'home'
   }
   ``` 
@@ -1033,12 +1012,12 @@ In diesem Teil der Übung werden Sie eine eigene ``PreloadingStrategy`` implemen
   </p>
   </details>
   
-  Hinweis: Über die Eigenschaft ``data`` können Sie beliebige Zusatzinformationen für eine Route hinterlegen.
+  Note: You can store any additional information for a route using the ``data`` property.
 
-5. Öffnen Sie die Datei ``app.module.ts`` und übergeben Sie die neue ``CustomPreloadingStrategy`` an ``forRoot``:
+5. Open the ``app.module.ts`` file and pass the new ``CustomPreloadingStrategy`` to ``forRoot``:
 
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -1060,12 +1039,12 @@ In diesem Teil der Übung werden Sie eine eigene ``PreloadingStrategy`` implemen
   </p>
   </details>
 
-6. Testen Sie Ihre Lösung und stellen Sie unter Verwendung des Registerblatts ``Network`` in den Dev Tools fest, dass Preloading stattfindet.
+6. Test your solution and verify that preloading is occurring using the ``Network`` tab in Dev Tools.
 
-7. Ändern Sie in der Datei ``app.routes.ts`` und geben Sie im data-Attribut an, dass ``flight-booking`` nicht mehr vorgeladen werden soll.
+7. In the ``app.routes.ts`` file, modify and specify in the data attribute that ``flight-booking`` should no longer be preloaded.
  
   <details>
-  <summary>Code anzeigen</summary>
+  <summary>Show code</summary>
   <p>
   
   ```TypeScript
@@ -1082,4 +1061,4 @@ In diesem Teil der Übung werden Sie eine eigene ``PreloadingStrategy`` implemen
   </p>
   </details>
 
-8. Testen Sie Ihre Lösung erneut und stellen Sie fest, dass nun kein Preloading mehr stattfindet.
+8. Test your solution again and note that preloading no longer occurs.

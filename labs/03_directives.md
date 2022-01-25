@@ -28,7 +28,7 @@
     ```typescript
     // src/app/shared/controls/click-with-warning.directive.ts
 
-    // Imports aktualisieren:
+    // Update imports:
     import { Directive, ElementRef, OnInit } from '@angular/core';
 
     @Directive({
@@ -63,7 +63,7 @@
     ```typescript
     // src/app/shared/controls/click-with-warning.directive.ts
 
-    // Imports aktualisieren:
+    // Update imports:
     import { Directive, ElementRef, EventEmitter, HostBinding, HostListener, Input, OnInit, Output } from '@angular/core';
 
     @Directive({
@@ -71,7 +71,7 @@
     })
     export class ClickWithWarningDirective implements OnInit {
 
-      // Input und Output ergänzen:
+      // Add Input and Output:
       @Input() warning = 'Are you sure?';
       @Output() appClickWithWarning = new EventEmitter();
 
