@@ -56,7 +56,7 @@ For this lab, we are ausin a new ``CustomerModule`` with a ``BookingHistoryCompo
 
     import { NgModule } from '@angular/core';
     import { CommonModule } from '@angular/common';
-    import { BookingComponent } from './booking/booking.component';
+    import { BookingHistoryComponent } from './booking-history/booking-history.component';
 
     // Add imports:
     import { RouterModule } from '@angular/router';
